@@ -28,6 +28,8 @@ export class ListaComponent implements OnInit {
 
   displayedColumns = ['_id', 'name', 'price'];
 
+  
+
 
 
 
