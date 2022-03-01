@@ -5,4 +5,5 @@ export interface Food {
   _id: string;
   name: string;
   price: string;
+  describe: string;
 }

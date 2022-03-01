@@ -1,1 +1,43 @@
-<mat-card>Simple card</mat-card>
+<mat-toolbar color="Secondary">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png" alt="Logo" class="logo">
+</mat-toolbar>
+
+<mat-card>
+  <mat-toolbar>Cardápio
+    
+    <div class="col-md-4">
+      <b>Custom Search Example</b>
+    </div>
+    <div class="form-group col-md-4">
+      <input type="text" class="form-control"  placeholder="Enter Keyword for filter result" [(ngModel)]="searchedKeyword">
+    </div>
+    </mat-toolbar>
+
+
+
+  <table mat-table [dataSource]="foods" class="mat-elevation-z8">
+
+
+  <!-- id -->
+  <ng-container matColumnDef="_id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let food"> {{food._id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let food"> <button class="listinha" mat-button (click)="openDialog(food)">{{food.name}}</button> </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef> Preço </th>
+    <td mat-cell *matCellDef="let food"> {{food.price}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+</mat-card>

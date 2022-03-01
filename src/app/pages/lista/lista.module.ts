@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { ListaRoutingModule } from './lista-routing.module';
 import {MatCardModule} from '@angular/material/card';
+// Forms Module - for ngModel
+import { FormsModule } from '@angular/forms'
+
 
 
 
@@ -11,7 +14,11 @@ import {MatCardModule} from '@angular/material/card';
   imports: [
     CommonModule,
     ListaRoutingModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule
+
   ]
 })
-export class ListaModule { }
+export class ListaModule {
+
+ }
