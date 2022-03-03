@@ -1,9 +1,11 @@
 import { FoodsService } from './../services/foods.service';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Food } from '../model/food';
 import { catchError, Observable, of } from 'rxjs';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { InfoModalComponent } from '../info-modal/info-modal.component';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 
 @Component({
@@ -11,13 +13,15 @@ import { InfoModalComponent } from '../info-modal/info-modal.component';
   templateUrl: './lista.component.html',
   styleUrls: ['./lista.component.css']
 })
-export class ListaComponent implements OnInit {
+export class ListaComponent implements OnInit, AfterViewInit {
 
   title = 'custom-search-filter-example';
 
-  searchedKeyword!: string;
+  //searchedKeyword!: string;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  foods: Food[] = [
+  teste =
+  [
 
     { _id: "1", name: "Hamburguer", price: "R$15,00", describe: "Um delicioso clássico. Pão tostado e quentinho, hambúrguer, cebola e picles com ketchup e mostarda." },
 
@@ -26,10 +30,23 @@ export class ListaComponent implements OnInit {
     { _id: "3", name: "Nuggets", price: "R$9,99", describe: "Crocantes, leves e deliciosos. Os frangos empanados mais irresistíveis do Recife" }
   ];
 
+  foods = new MatTableDataSource(this.teste)
+
   displayedColumns = ['_id', 'name', 'price'];
+  sort: any;
 
-  
 
+
+  // public doFilter = (value: any) => {
+  //   console.log(value);
+  //   this.foods.filter = value.trim().toLocaleLowerCase();
+
+  // }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    console.log(filterValue)
+    this.foods.filter = filterValue.trim().toLowerCase();
+  }
 
 
 
@@ -43,6 +60,11 @@ export class ListaComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+
+   ngAfterViewInit(): void {
+     this.foods.sort = this.sort;
+     this.foods.paginator = this.paginator;
   }
 
 

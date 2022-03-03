@@ -1,17 +1,24 @@
-<mat-toolbar color="Secondary">
+<html lang="pt-br">
+<meta charset="UTF-8">
+
+<mat-toolbar>
   <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png" alt="Logo" class="logo">
+
+  <div fxLayout fxLayoutAlign="center center" class="Busca">
+    <mat-form-field fxFlex="40%">
+      <input matInput type="text" (keyup)="applyFilter($event)" placeholder="Busca">
+    </mat-form-field>
+  </div>
 </mat-toolbar>
 
 <mat-card>
   <mat-toolbar >Cardápio
 
 
-    <div class="Busca">
-      <input type="text" class="form-control"  placeholder="Busca" [(ngModel)]="searchedKeyword">
-    </div>
+
   </mat-toolbar>
 
-  <table mat-table [dataSource]="foods" class="mat-elevation-z8">
+  <table mat-table [dataSource]="foods" >
 
   <!-- id -->
   <ng-container matColumnDef="_id">
@@ -34,4 +41,6 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+<mat-paginator [pageSize]="4" [pageSizeOptions]="[2, 4, 6, 10, 20]" class="paginator">
+</mat-paginator>
 </mat-card>

@@ -5,7 +5,7 @@ mat-toolbar {
 
 .logo
  {
-  width: 5%;
+  width: 2%;
 
  }
 
@@ -28,5 +28,12 @@ mat-toolbar {
  }
 
  .Busca {
- margin-left: 320px;
+ margin-right: 0;
+ margin-left: auto;
+ }
+
+ .paginator {
+  background-color: rgb(5, 24, 32);
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
  }

@@ -19,6 +19,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
+import {MatPaginatorModule } from '@angular/material/paginator';
+
 
 
 
@@ -44,7 +46,8 @@ import { FormsModule } from '@angular/forms';
     MatChipsModule,
     MatFormFieldModule,
     Ng2SearchPipeModule,
-    FormsModule
+    FormsModule,
+    MatPaginatorModule
 
   ],
   providers: [],

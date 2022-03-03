@@ -5,6 +5,8 @@ import { ListaRoutingModule } from './lista-routing.module';
 import {MatCardModule} from '@angular/material/card';
 // Forms Module - for ngModel
 import { FormsModule } from '@angular/forms'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -15,7 +17,9 @@ import { FormsModule } from '@angular/forms'
     CommonModule,
     ListaRoutingModule,
     MatCardModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule
 
   ]
 })
